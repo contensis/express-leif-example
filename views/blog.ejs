@@ -1,0 +1,36 @@
+<div class="blog-hero">
+  <h1 class="blog-hero__title"><%= blog.entryTitle %></h1>
+  <img
+    class="blog-hero__img"
+    src="http://live.leif.contensis.cloud<%= blog?.thumbnailImage?.asset?.sys?.uri %>"
+    alt="<%= blog?.thumbnailImage?.altText %>"
+  />
+</div>
+<div class="profile">
+  <img
+    class="profile__img"
+    src="http://live.leif.contensis.cloud<%= blog?.author?.entryThumbnail?.asset?.sys?.uri %>"
+    alt=""
+  />
+  <span class="profile__name"><%= blog?.author?.entryTitle %></span>
+  <span class="category"><%= blog?.category?.entryTitle %></span>
+</div>
+<div class="blog__content">
+  <p class="lead"><%= blog.leadParagraph %></p>
+  <!-- Switch statement to render the components of the blog record  -->
+  <% blog?.postBody?.map(field => { %> <% switch(field.type) { case 'markup': %>
+  <div><%-field.value %></div>
+  <% break; case 'image': %>
+  <div class="inline-img">
+    <img
+      class="inline-img__img"
+      src="http://live.leif.contensis.cloud<%= field.value?.asset?.sys?.uri %>"
+      alt="<%= field.value?.altText %>"
+    />
+    <div class="inline-img__content">
+      <h2 class="inline-img__title"><%= field.value.caption %></h2>
+    </div>
+  </div>
+  <% break; } %> <% }); %>
+</div>
+<a href="/" class="btn">View all blogs</a>

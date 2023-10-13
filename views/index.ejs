@@ -1,0 +1,22 @@
+<h1 class="blogs__title">Our blogs</h1>
+<!-- Looping through the blogs -->
+<ul class="blogs">
+  <% blogs && blogs.length >= 1 && blogs.map(blog => { %>
+  <li class="blog-card">
+    <a title="<%= blog.entryTitle %>" href="?entryId=<%=blog.sys.id %>">
+      <h2 class="blog-card__title mobile"><%= blog.entryTitle %></h2>
+    </a>
+    <img
+      class="blog-card__img"
+      src="http://live.leif.contensis.cloud<%= blog.thumbnailImage?.asset?.sys?.uri %>"
+      alt="<%= blog?.thumbnailImage?.altText %>"
+    />
+    <div class="related-blog__content">
+      <h2 class="blog-card__title desktop"><%= blog.entryTitle %></h2>
+      <!-- Truncate text as it can sometimes be too long -->
+      <p class="blog-card__text"><%= `${blog.summary.slice(0, 124)}...` %></p>
+      <span class="category"><%= blog?.category?.entryTitle %></span>
+    </div>
+  </li>
+  <% }); %>
+</ul>

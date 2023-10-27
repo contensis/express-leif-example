@@ -19,11 +19,11 @@ Before you begin, make sure you have the following software installed:
 
 To get started with this Leif Express.js example, follow these steps:
 
-1. Clone the Repository
+1. Clone the repository
    First, clone this repository to your local machine using the following command:
 
 ```shell
-git clone TODO
+git clone git@github.com:contensis/express-leif-example.git
 ```
 
 2. Navigate to the project directory

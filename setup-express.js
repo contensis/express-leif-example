@@ -4,7 +4,7 @@ const layouts = require('express-ejs-layouts');
 
 exports.setupExpressServer = () => {
   const app = express();
-  const port = 3000; // Default port our app will run on
+  const port = 3001; // Default port our app will run on
 
   app.use(express.static('public')); //  Set our application to use static files in the public folder
   app.use(layouts); // Set our application to use layouts, using the express-ejs-layouts package

@@ -10,9 +10,10 @@ app.get('/', async (req, res) => {
 
     const entryId = req.query.entryId;
     const blog = await getSingleBlog(entryId);
+    const imageHost = `http://live-${process.env.ALIAS}.cloud.contensis.com`;
 
-    if (blog) res.render('blog', { blog }); // --> views/blog.ejs
-    else res.render('index', { blogs }); // --> views/index.ejs
+    if (blog) res.render('blog', { blog, imageHost }); // --> views/blog.ejs
+    else res.render('index', { blogs, imageHost }); // --> views/index.ejs
   } catch (error) {
     console.error(error);
   }
